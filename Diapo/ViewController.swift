@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     @IBAction func prevButtonTouched() {
         timer?.invalidate()
         
-        if (photoIndex > 1) {
+        if photoIndex > 1 {
             photoIndex -= 1
         } else {
             photoIndex = 3
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     @IBAction func nextButtonTouched() {
         timer?.invalidate()
         
-        if (photoIndex < 3) {
+        if photoIndex < 3 {
             photoIndex += 1
         } else {
             photoIndex = 1
