@@ -71,7 +71,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="Ihm-RX-896" id="u5v-wq-CwD"/>
+                        <outlet property="ui_imageView" destination="Ihm-RX-896" id="u5v-wq-CwD"/>
+                        <outlet property="ui_navStack" destination="b0c-Km-fOu" id="GDc-g6-x7v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
