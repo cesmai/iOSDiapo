@@ -24,10 +24,14 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func saveButtonTouched() {
+        
         // Save in UserDefaults
         UserDefaults.standard.set(ui_timeInterval.text, forKey: "ud_timeIntervalKey")
+        
+        // Back to previous view
+        dismiss(animated: true, completion: nil)
     }
-      
+    
    
     /*
     // MARK: - Navigation

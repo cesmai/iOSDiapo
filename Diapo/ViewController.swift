@@ -26,15 +26,18 @@ class ViewController: UIViewController {
         
         // Init
         //print("Init image")
-        ui_imageView.image = UIImage(named: "photo\(photoIndex)")
+        ui_imageView.image = UIImage(named: "photo\(photoIndex)") //TODO save index before going to settings
         ui_navStack.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
         
         // Load UserDefaults
         loadUserDefaults()
         
         // Launch diaporama
         launchSlideshow()
-        
     }
     
     @IBAction func stopButtonTouched() {
@@ -113,8 +116,6 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touchesBegan")
         
-        print(ui_navStack.isHidden)
-        
         if ui_navStack.isHidden {
             showNavStack()
         } else {
@@ -129,4 +130,16 @@ class ViewController: UIViewController {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touchesEnded")
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("viewWillDisappear")
+        
+        resetTimers()
+    }
+    
+    func resetTimers() {
+        slideshowTimer?.invalidate()
+        navTimer?.invalidate()
+    }
+    
 }
