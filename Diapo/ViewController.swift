@@ -13,8 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var ui_imageView: UIImageView!
     @IBOutlet weak var ui_navStack: UIStackView!
     var photoIndex: Int = 1
-    var timer: Timer?
+    var slideshowTimer: Timer?
     var navTimer: Timer?
+    var slideshowTimeInterval: TimeInterval = 3
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +28,65 @@ class ViewController: UIViewController {
         ui_imageView.image = UIImage(named: "photo\(photoIndex)")
         ui_navStack.isHidden = true
         
+        // Load UserDefaults
+        loadUserDefaults()
+        
+        
         // Launch diaporama
+        launchSlideshow()
+        
+    }
+    
+    @IBAction func stopButtonTouched() {
+        slideshowTimer?.invalidate()
+    }
+        
+    @IBAction func prevButtonTouched() {
+        slideshowTimer?.invalidate()
+        showNavStack()
+        
+        if photoIndex > 1 {
+            photoIndex -= 1
+        } else {
+            photoIndex = 3
+        }
+        let photoName = "photo\(photoIndex)"
+        //print("Display photo = " + photoName)
+        ui_imageView.image = UIImage(named: photoName)
+        
+    }
+    
+    @IBAction func nextButtonTouched() {
+        slideshowTimer?.invalidate()
+        showNavStack()
+        
+        if photoIndex < 3 {
+            photoIndex += 1
+        } else {
+            photoIndex = 1
+        }
+        let photoName = "photo\(photoIndex)"
+        //print("Display photo = " + photoName)
+        ui_imageView.image = UIImage(named: photoName)
+    }
+    
+    
+    func loadUserDefaults() {
+        if let ud_timeIntervalValue = UserDefaults.standard.string(forKey: "ud_timeIntervalKey") {
+            //slideshowTimeInterval = (ud_timeIntervalValue as NSString).doubleValue
+            slideshowTimeInterval = TimeInterval(ud_timeIntervalValue) ?? 0
+        }
+    }
+    
+    func launchSlideshow() {
+        
         //print("Begin diaporama")
         
-        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (_) in
+        slideshowTimer = Timer.scheduledTimer(withTimeInterval: slideshowTimeInterval, repeats: true) { (_) in
             
             self.photoIndex += 1
             
-            var photoName = "photo\(self.photoIndex)"
+            let photoName = "photo\(self.photoIndex)"
             //print("Display photo = " + photoName)
             self.ui_imageView.image = UIImage(named: photoName)
             if (self.photoIndex == 3) {
@@ -41,39 +95,6 @@ class ViewController: UIViewController {
         }
         
         //print("End diaporama")
-    }
-    
-    @IBAction func stopButtonTouched() {
-        timer?.invalidate()
-    }
-        
-    @IBAction func prevButtonTouched() {
-        timer?.invalidate()
-        showNavStack()
-        
-        if photoIndex > 1 {
-            photoIndex -= 1
-        } else {
-            photoIndex = 3
-        }
-        var photoName = "photo\(photoIndex)"
-        //print("Display photo = " + photoName)
-        ui_imageView.image = UIImage(named: photoName)
-        
-    }
-    
-    @IBAction func nextButtonTouched() {
-        timer?.invalidate()
-        showNavStack()
-        
-        if photoIndex < 3 {
-            photoIndex += 1
-        } else {
-            photoIndex = 1
-        }
-        var photoName = "photo\(photoIndex)"
-        //print("Display photo = " + photoName)
-        ui_imageView.image = UIImage(named: photoName)
     }
     
     func showNavStack() {

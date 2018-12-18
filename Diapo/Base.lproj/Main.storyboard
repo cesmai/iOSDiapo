@@ -79,5 +79,62 @@
             </objects>
             <point key="canvasLocation" x="121.73913043478262" y="24.776785714285712"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="XLT-V3-k3c">
+            <objects>
+                <viewController id="xgF-rD-5xf" customClass="SettingsViewController" customModule="Diapo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YqF-hZ-VB8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIy-TQ-vj3">
+                                <rect key="frame" x="152" y="60" width="110" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time interval" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvp-TX-opG">
+                                <rect key="frame" x="10" y="119" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZF5-L6-sLr">
+                                <rect key="frame" x="141" y="115.5" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="sB1-jb-EiM"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Al9-M9-YUX">
+                                <rect key="frame" x="192" y="194" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTouched" destination="xgF-rD-5xf" eventType="touchUpInside" id="rxx-Ph-Fke"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZF5-L6-sLr" firstAttribute="firstBaseline" secondItem="zvp-TX-opG" secondAttribute="firstBaseline" id="Igx-gz-KA8"/>
+                            <constraint firstItem="zvp-TX-opG" firstAttribute="leading" secondItem="L39-0G-EOU" secondAttribute="leading" constant="10" id="IuP-bM-Lee"/>
+                            <constraint firstItem="ZF5-L6-sLr" firstAttribute="leading" secondItem="zvp-TX-opG" secondAttribute="trailing" constant="33" id="P0G-Zu-l4D"/>
+                            <constraint firstItem="xIy-TQ-vj3" firstAttribute="centerX" secondItem="YqF-hZ-VB8" secondAttribute="centerX" id="TNa-lR-lUO"/>
+                            <constraint firstItem="zvp-TX-opG" firstAttribute="top" secondItem="xIy-TQ-vj3" secondAttribute="bottom" constant="22" id="uoD-jr-LJe"/>
+                            <constraint firstItem="xIy-TQ-vj3" firstAttribute="top" secondItem="L39-0G-EOU" secondAttribute="top" constant="16" id="vTM-7s-meH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L39-0G-EOU"/>
+                    </view>
+                    <connections>
+                        <outlet property="ui_timeInterval" destination="ZF5-L6-sLr" id="zei-iS-61k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-hz-Uz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.7391304347827" y="24.776785714285712"/>
+        </scene>
     </scenes>
 </document>
