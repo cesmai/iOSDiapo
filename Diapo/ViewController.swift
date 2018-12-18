@@ -15,8 +15,9 @@ class ViewController: UIViewController {
     var photoIndex: Int = 1
     var slideshowTimer: Timer?
     var navTimer: Timer?
-    var slideshowTimeInterval: TimeInterval = 3
     
+    let SLIDESHOW_TIME_INTERVAL_DEFAULT_VALUE: TimeInterval = 3
+    var slideshowTimeInterval: TimeInterval = 0
     
     
     override func viewDidLoad() {
@@ -30,7 +31,6 @@ class ViewController: UIViewController {
         
         // Load UserDefaults
         loadUserDefaults()
-        
         
         // Launch diaporama
         launchSlideshow()
@@ -72,9 +72,11 @@ class ViewController: UIViewController {
     
     
     func loadUserDefaults() {
+        
         if let ud_timeIntervalValue = UserDefaults.standard.string(forKey: "ud_timeIntervalKey") {
-            //slideshowTimeInterval = (ud_timeIntervalValue as NSString).doubleValue
-            slideshowTimeInterval = TimeInterval(ud_timeIntervalValue) ?? 0
+            slideshowTimeInterval = TimeInterval(ud_timeIntervalValue) ?? SLIDESHOW_TIME_INTERVAL_DEFAULT_VALUE
+        } else {
+            slideshowTimeInterval = SLIDESHOW_TIME_INTERVAL_DEFAULT_VALUE
         }
     }
     
