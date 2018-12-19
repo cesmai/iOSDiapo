@@ -126,15 +126,24 @@
                                     <action selector="saveButtonTouched" destination="xgF-rD-5xf" eventType="touchUpInside" id="rxx-Ph-Fke"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwr-iR-SNp">
+                                <rect key="frame" x="356" y="69" width="48" height="30"/>
+                                <state key="normal" title="More..."/>
+                                <connections>
+                                    <action selector="moreSettingsButtonTouched" destination="xgF-rD-5xf" eventType="touchUpInside" id="vgq-bQ-M3k"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="L39-0G-EOU" firstAttribute="trailing" secondItem="hwr-iR-SNp" secondAttribute="trailing" constant="10" id="9fD-ry-MrM"/>
                             <constraint firstItem="ZF5-L6-sLr" firstAttribute="firstBaseline" secondItem="zvp-TX-opG" secondAttribute="firstBaseline" id="Igx-gz-KA8"/>
                             <constraint firstItem="zvp-TX-opG" firstAttribute="leading" secondItem="L39-0G-EOU" secondAttribute="leading" constant="10" id="IuP-bM-Lee"/>
                             <constraint firstItem="Al9-M9-YUX" firstAttribute="top" secondItem="zvp-TX-opG" secondAttribute="bottom" constant="54" id="Ix1-jt-wXF"/>
                             <constraint firstItem="ZF5-L6-sLr" firstAttribute="leading" secondItem="zvp-TX-opG" secondAttribute="trailing" constant="33" id="P0G-Zu-l4D"/>
                             <constraint firstItem="Al9-M9-YUX" firstAttribute="centerX" secondItem="YqF-hZ-VB8" secondAttribute="centerX" id="PdR-6h-VWE"/>
                             <constraint firstItem="xIy-TQ-vj3" firstAttribute="centerX" secondItem="YqF-hZ-VB8" secondAttribute="centerX" id="TNa-lR-lUO"/>
+                            <constraint firstItem="hwr-iR-SNp" firstAttribute="firstBaseline" secondItem="xIy-TQ-vj3" secondAttribute="firstBaseline" id="koG-AZ-AEm"/>
                             <constraint firstItem="zvp-TX-opG" firstAttribute="top" secondItem="xIy-TQ-vj3" secondAttribute="bottom" constant="22" id="uoD-jr-LJe"/>
                             <constraint firstItem="xIy-TQ-vj3" firstAttribute="top" secondItem="L39-0G-EOU" secondAttribute="top" constant="16" id="vTM-7s-meH"/>
                         </constraints>

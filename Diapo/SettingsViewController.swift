@@ -22,6 +22,12 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    @IBAction func moreSettingsButtonTouched() {
+        
+        if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+        }
+    }
     
     @IBAction func saveButtonTouched() {
         
